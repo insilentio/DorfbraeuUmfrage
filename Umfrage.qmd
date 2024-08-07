@@ -32,7 +32,7 @@ knitr::kable(tabelle,
 
 ## Resultate
 
-Zusammengefasst präsentiert sich das folgendermassen:
+Zusammengefasst präsentiert sich das wie folgt:
 
 ```{r}
 #| label: pivot
@@ -40,23 +40,25 @@ Zusammengefasst präsentiert sich das folgendermassen:
 options(knitr.kable.NA = '')
 
 pivot <- tabelle |> 
+  mutate(n = sum(Favorit)) |> 
   group_by(Biersorte) |> 
-  summarise(across(c(2,3,4), \(x) mean(x, na.rm = TRUE)),
-            across(c(5), \(x) sum(x, na.rm = TRUE)/n()))
+  reframe(across(c(2,3,4), \(x) mean(x, na.rm = TRUE)),
+            across(c(5), \(x) sum(x, na.rm = TRUE)/n)) |> 
+  unique()
 
 knitr::kable(pivot, digits = c(0, 1, 1, 1, 2))
 ```
 
 ## Grafik
 
-Grafisch sieht das so aus:
+Grafisch sieht das dann so aus:
 ```{r}
+#| label: prep
 #| echo: false
 #| output: false
 
 # make the data tidy
 pivot <- pivot |> 
-  ungroup() |> 
   pivot_longer(-c(1),
                names_to = "Kategorie", values_to = "Wert") |> 
   mutate(Biersorte = factor(Biersorte,
@@ -104,7 +106,8 @@ pivot |>
   filter(Kategorie == "Favorit") |> 
   ggplot(aes(y = Wert, x = Kategorie, fill = Biersorte)) +
     geom_col(position = "dodge") +
-    geom_text(aes(label = paste(Wert*100, "%"), y = Wert + 0.05), colour = "darkgrey", position = position_dodge(0.9), vjust = 0) +
+    geom_text(aes(label = paste(Wert*100, "%"), y = Wert + 0.05),
+              colour = "darkgrey", position = position_dodge(0.9), vjust = 0) +
   scale_y_continuous(labels = scales::percent) +
   scale_fill_manual(values = mycolor) +
   mytheme
