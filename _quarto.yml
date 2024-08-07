@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Umfrage"
+toc: true
+format:
+  html:
+    code-fold: true
+execute: 
+  warning: false
+  message: false

@@ -1,10 +1,5 @@
 ---
 title: "Umfrage"
-format: html
-execute: 
-  warning: false
-  message: false
-toc: true
 ---
 
 # Umfrage zur ersten Serie unserer Biere
@@ -13,7 +8,7 @@ toc: true
 
 Bei der ersten Serie unserer Sude haben wir bei jedem Kistli jeweils einen Fragebogen mitgegeben:
 
-![](images/degu.png){fig-align="center" width="564"}
+![](data/degu.png){fig-align="center" width="564"}
 
 ## Rückmeldungen
 
@@ -28,7 +23,7 @@ library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
 library(here)
 options(knitr.kable.NA = '')
 
-tabelle <- read_csv(here("Data/tabelle.csv")) |> 
+tabelle <- read_csv(here("data/tabelle.csv")) |> 
   filter(!if_all(c(3:6), ~ is.na(.)))
 
 knitr::kable(tabelle,
