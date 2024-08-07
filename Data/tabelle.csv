@@ -1,0 +1,66 @@
+Person,Biersorte,Schaum/Kohlensäure,Geschmack,Farbe,Favorit,Kommentar
+1,Sonnenberg,5,5,4,1,
+1,Oberdorf,5,4,4,0,
+1,Oeggisbüel,4,5,3,0,OK
+1,Isisbüel,4,4,4,0,"ganz ok, etwas zu malzig und bitter"
+1,Ludretikon,3,3,3,0,zu bitter
+2,Sonnenberg,5,5,3,1,
+2,Oberdorf,3,4,2,0,
+2,Oeggisbüel,4,4,4,0,
+2,Isisbüel,5,3,4,0,
+2,Ludretikon,4,3,5,0,
+3,Sonnenberg,5,5,3,1,
+3,Oberdorf,2,2,2,0,
+3,Oeggisbüel,5,3,3,0,
+3,Isisbüel,4,3,3,0,
+3,Ludretikon,4,3,5,0,
+4,Sonnenberg,5,5,4,1,
+4,Oberdorf,3,4,3,0,
+4,Oeggisbüel,3,5,4,0,
+4,Isisbüel,5,4,4,0,
+4,Ludretikon,4,4,5,0,
+5,Sonnenberg,5,5,5,1,
+5,Oberdorf,3,3,3,0,
+5,Oeggisbüel,4,1,4,0,
+5,Isisbüel,5,4,4,0,
+5,Ludretikon,4,4,4,0,
+6,Sonnenberg,5,3,5,0,
+6,Oberdorf,4,3,4,0,
+6,Oeggisbüel,4,3,5,0,bitter!
+6,Isisbüel,5,5,5,1,
+6,Ludretikon,4,2,4,0,etwas bitter
+7,Sonnenberg,5,5,4,1,fast zu hell
+7,Oberdorf,1,3,5,0,"kein Schaum, sehr malzig"
+7,Oeggisbüel,4,3,4,0,
+7,Isisbüel,5,5,5,1,echt toller Geschmack
+7,Ludretikon,5,4,4,0,
+8,Sonnenberg,4,3,4,0,
+8,Oberdorf,1,4,4,0,zu wenig Kohlensäure
+8,Oeggisbüel,2,4,3,0,zu viel Kohlensäure
+8,Isisbüel,4,4,5,1,
+8,Ludretikon,3,3,3,0,
+9,Sonnenberg,5,3,5,0,
+9,Oberdorf,5,4,5,0,
+9,Oeggisbüel,5,5,5,0,"weich, geschmeidig: etwas untypisch für IPA"
+9,Isisbüel,5,4,5,0,
+9,Ludretikon,5,5,5,0,
+10,Sonnenberg,3,4,4,0,
+10,Oberdorf,5,5,4,0,
+10,Oeggisbüel,4,4,4,0,
+10,Isisbüel,5,4,5,1,
+10,Ludretikon,4,2,4,0,zu bitter
+11,Sonnenberg,4,5,3,0,
+11,Oberdorf,4,4,3,0,
+11,Oeggisbüel,4,4,4,0,
+11,Isisbüel,4,5,5,1,
+11,Ludretikon,4,5,4,0,beste Kohlensäure
+12,Sonnenberg,3,5,5,1,sehr viel Kohlensäure
+12,Oberdorf,1,3,5,0,
+12,Oeggisbüel,5,2,4,0,eher herb im Geschmack
+12,Isisbüel,5,5,5,0,
+12,Ludretikon,5,4,5,1,
+13,Sonnenberg,,,,,
+13,Oberdorf,,,,,
+13,Oeggisbüel,,,,,
+13,Isisbüel,,,,,
+13,Ludretikon,,,,,
