@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "readme.html",
+    "href": "readme.html",
+    "title": "Dorfbräu Survey",
+    "section": "",
+    "text": "An analysis of the Dorfbräu survey conducted with the start of issuing the first brewed beers of the company.\nAnalysis contains mean values of the rated beers per category (carbonization, taste, colour) and the ranking of the favourites.\n\n\n\nRepo is based on Github action to automatically run and render the analysis whenever changes are merged to main branch. Therefore it is sufficient to just update the respective csv file in data folder and push it to obtain new results at Github pages."
+  },
+  {
+    "objectID": "readme.html#content",
+    "href": "readme.html#content",
+    "title": "Dorfbräu Survey",
+    "section": "",
+    "text": "An analysis of the Dorfbräu survey conducted with the start of issuing the first brewed beers of the company.\nAnalysis contains mean values of the rated beers per category (carbonization, taste, colour) and the ranking of the favourites."
+  },
+  {
+    "objectID": "readme.html#technology",
+    "href": "readme.html#technology",
+    "title": "Dorfbräu Survey",
+    "section": "",
+    "text": "Repo is based on Github action to automatically run and render the analysis whenever changes are merged to main branch. Therefore it is sufficient to just update the respective csv file in data folder and push it to obtain new results at Github pages."
+  },
+  {
     "objectID": "Umfrage.html",
     "href": "Umfrage.html",
     "title": "Umfrage",
