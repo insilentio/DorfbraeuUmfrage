@@ -68,6 +68,7 @@ pivot <- pivot |>
 
 # create theme
 mytheme <- theme(axis.title.x = element_blank(),
+                 axis.ticks.x = element_blank(),
                  legend.position = "bottom",
                  panel.grid.major.x = element_blank(),
                  text = element_text(colour = "#505050"),
@@ -79,7 +80,7 @@ mycolor <- c("#E7E04A", "#AA4DA5", "#6DBE78", "#E37237", "#DA3832")
 ```
 
 
-### Bewertung:
+### Bewertung
 
 ```{r}
 #| label: plot_values
@@ -97,7 +98,7 @@ pivot |>
   
 ```
 
-### Favoriten:
+### Favoriten
 
 ```{r}
 #| label: plot_favorite
