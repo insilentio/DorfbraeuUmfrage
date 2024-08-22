@@ -59,8 +59,8 @@ Person,Biersorte,Schaum/Kohlensäure,Geschmack,Farbe,Favorit,Kommentar
 12,Oeggisbüel,5,2,4,0,eher herb im Geschmack
 12,Isisbüel,5,5,5,0,
 12,Ludretikon,5,4,5,1,
-13,Sonnenberg,,,,,
-13,Oberdorf,,,,,
-13,Oeggisbüel,,,,,
-13,Isisbüel,,,,,
-13,Ludretikon,,,,,
+13,Sonnenberg,5,5,5,1,
+13,Oberdorf,3,3,3,0,
+13,Oeggisbüel,5,5,5,0,
+13,Isisbüel,5,5,5,0,
+13,Ludretikon,3,3,3,0,

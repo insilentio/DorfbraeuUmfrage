@@ -27,7 +27,8 @@ tabelle <- read_csv(here("data/tabelle.csv")) |>
   filter(!if_all(c(3:6), ~ is.na(.)))
 
 knitr::kable(tabelle,
-             align = c("l", "l", "c", "c", "c", "c", "l"))
+             align = c("l", "l", "c", "c", "c", "c", "l"),
+             longtable = TRUE)
 ```
 
 ## Resultate
