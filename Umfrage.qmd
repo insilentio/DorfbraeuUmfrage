@@ -1,0 +1,127 @@
+---
+title: "Umfrage"
+---
+
+# Umfrage zur ersten Serie unserer Biere
+
+## Fragebogen
+
+Bei der ersten Serie unserer Sude haben wir bei jedem Kistli jeweils einen Fragebogen mitgegeben:
+
+![](data/degu.png){fig-align="center" width="564"}
+
+## Rückmeldungen
+
+Die Rückmeldungen siehen folgendermassen aus:
+
+```{r}
+#| label: csv
+#| echo: false
+# read the csv
+
+library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
+library(here)
+library(kableExtra)
+options(knitr.kable.NA = '')
+
+tabelle <- read_csv(here("data/tabelle.csv")) |> 
+  filter(!if_all(c(3:6), ~ is.na(.)))
+
+ktbl <- knitr::kable(tabelle,
+             align = c("l", "l", "c", "c", "c", "c", "l"),
+             longtable = TRUE)
+kableExtra::scroll_box(scroll_box(
+  ktbl,
+  height = "300px",
+  width = NULL,
+  box_css = "border: 1px solid #ddd; padding: 5px; ",
+  extra_css = NULL,
+  fixed_thead = TRUE
+))
+```
+
+## Resultate
+
+Zusammengefasst präsentiert sich das wie folgt:
+
+```{r}
+#| label: pivot
+#| echo: false
+options(knitr.kable.NA = '')
+
+pivot <- tabelle |> 
+  mutate(n = sum(Favorit)) |> 
+  group_by(Biersorte) |> 
+  reframe(across(c(2,3,4), \(x) mean(x, na.rm = TRUE)),
+            across(c(5), \(x) sum(x, na.rm = TRUE)/n)) |> 
+  unique()
+
+knitr::kable(pivot, digits = c(0, 1, 1, 1, 2))
+```
+
+## Grafik
+
+Grafisch sieht das dann so aus:
+```{r}
+#| label: prep
+#| echo: false
+#| output: false
+
+# make the data tidy
+pivot <- pivot |> 
+  pivot_longer(-c(1),
+               names_to = "Kategorie", values_to = "Wert") |> 
+  mutate(Biersorte = factor(Biersorte,
+                            levels = c("Sonnenberg", "Oberdorf", "Oeggisbüel", "Isisbüel", "Ludretikon"),
+                            ordered = TRUE)) |> 
+  mutate(Wert = round(Wert, 2))
+
+# create theme
+mytheme <- theme(axis.title.x = element_blank(),
+                 axis.ticks.x = element_blank(),
+                 legend.position = "bottom",
+                 panel.grid.major.x = element_blank(),
+                 text = element_text(colour = "#505050"),
+                 plot.title = element_text(colour = "#505050", size = 11, hjust = 0.5),
+                 plot.background = element_rect(colour = "#505050", fill=NA, linewidth =.5) )
+
+# define colors
+mycolor <- c("#E7E04A", "#AA4DA5", "#6DBE78", "#E37237", "#DA3832")
+```
+
+
+### Bewertung
+
+```{r}
+#| label: plot_values
+#| echo: false
+
+pivot |>
+  filter(Kategorie != "Favorit") |> 
+  ggplot(aes(y = Wert, x = Kategorie, fill = Biersorte)) +
+    geom_col(position = "dodge") +
+    geom_text(aes(label = Wert, y = Wert + 0.05),
+              colour = "#505050", position = position_dodge(0.9), vjust = 0) +
+    expand_limits(y = c(0,5)) +
+    scale_fill_manual(values = mycolor) +
+    mytheme
+  
+```
+
+### Favoriten
+
+```{r}
+#| label: plot_favorite
+#| echo: false
+
+pivot |> 
+  filter(Kategorie == "Favorit") |> 
+  ggplot(aes(y = Wert, x = Kategorie, fill = Biersorte)) +
+    geom_col(position = "dodge") +
+    geom_text(aes(label = paste(Wert*100, "%"), y = Wert + 0.01),
+              colour = "#505050", position = position_dodge(0.9), vjust = 0) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = mycolor) +
+  mytheme
+  
+```
