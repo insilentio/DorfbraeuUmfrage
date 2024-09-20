@@ -1,5 +1,8 @@
 ---
-title: "Umfrage"
+title: "Dorfbräu Thalwil GmbH"
+lang: "de-CH"
+date: now
+date-format: "DD. MMMM YYYY [um] HH:MM"
 ---
 
 # Umfrage zur ersten Serie unserer Biere
