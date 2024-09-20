@@ -19,13 +19,16 @@ Die Rückmeldungen siehen folgendermassen aus:
 #| echo: false
 # read the csv
 
-library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
+library(readr)
+library(dplyr)
+library(tidyr)
 library(here)
 library(kableExtra)
+library(ggplot2)
 options(knitr.kable.NA = '')
 
 tabelle <- read_csv(here("data/tabelle.csv")) |> 
-  filter(!if_all(c(3:6), ~ is.na(.)))
+  dplyr::filter(!if_all(c(3:6), ~ is.na(.)))
 
 ktbl <- knitr::kable(tabelle,
              align = c("l", "l", "c", "c", "c", "c", "l"),
