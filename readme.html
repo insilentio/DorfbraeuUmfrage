@@ -85,6 +85,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
   <li><a href="#technology" id="toc-technology" class="nav-link" data-scroll-target="#technology">Technology</a></li>
+  <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats">Caveats</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -104,7 +105,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="technology" class="level2">
 <h2 class="anchored" data-anchor-id="technology">Technology</h2>
-<p>Repo is based on Github action to automatically run and render the analysis whenever changes are merged to main branch. Therefore it is sufficient to just update the respective csv file in data folder and push it to obtain new results at <a href="https://insilentio.github.io/DorfbraeuUmfrage/Umfrage.html">Github pages</a>.</p>
+<p>Repo is based on a Github action to automatically run and render the analysis whenever changes are merged to main branch. Therefore it is sufficient to just update the respective csv file in the data folder. After pushing and merging, you will automatically obtain new results at <a href="https://insilentio.github.io/DorfbraeuUmfrage/Umfrage.html">Github pages</a>.</p>
+</section>
+<section id="caveats" class="level2">
+<h2 class="anchored" data-anchor-id="caveats">Caveats</h2>
+<p>Project uses <a href="https://rstudio.github.io/renv/">renv</a> for creating a reproducible environment. However, if you need to render the document locally, you must deactivate renv first (<code>renv::deactivate()</code>). Also, when enhancing the code in a way that results in need of an additional package, be sure to include it in the <em>renv.lock</em> file by using <code>renv::snapshot</code>. Furthermore, in such a case you should clear the cache on <a href="https://github.com/insilentio/DorfbraeuUmfrage/actions/caches">GitHub</a> to enforce the building of a fresh container with the correct environment. The same is true when you decide to update the R version in <em>publish.yml</em>.</p>
 
 
 </section>
