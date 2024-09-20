@@ -21,14 +21,23 @@ Die Rückmeldungen siehen folgendermassen aus:
 
 library(tidyverse, warn.conflicts = FALSE, quietly = TRUE)
 library(here)
+library(kableExtra)
 options(knitr.kable.NA = '')
 
 tabelle <- read_csv(here("data/tabelle.csv")) |> 
   filter(!if_all(c(3:6), ~ is.na(.)))
 
-knitr::kable(tabelle,
+ktbl <- knitr::kable(tabelle,
              align = c("l", "l", "c", "c", "c", "c", "l"),
              longtable = TRUE)
+kableExtra::scroll_box(scroll_box(
+  ktbl,
+  height = "300px",
+  width = NULL,
+  box_css = "border: 1px solid #ddd; padding: 5px; ",
+  extra_css = NULL,
+  fixed_thead = TRUE
+))
 ```
 
 ## Resultate
